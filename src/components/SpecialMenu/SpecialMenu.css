@@ -1,0 +1,24 @@
+.flex_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section_padding {
+  padding: 4rem 6rem;
+}
+.special_menu {
+  flex-direction: column;
+  background: var(--color-black);
+}
+.special_menu_title {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.special_menu_menu {
+  width: 100%;
+  margin: 2rem 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+}

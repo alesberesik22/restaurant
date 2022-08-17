@@ -89,3 +89,32 @@
   width: 100%;
   z-index: 2;
 }
+.about_content_h1 p,
+.history_content_h1 p {
+  margin: 5rem 0;
+  color: var(--color-grey);
+}
+
+@media screen and (max-width: 900px) {
+  .about_overlay img {
+    width: 80%;
+  }
+  .about {
+    flex-direction: column;
+  }
+  .about_content_knife {
+    margin: 4rem 0rem;
+  }
+  .about_content_knife img {
+    margin: 0 0.5rem;
+  }
+  .about_content_h1 p,
+  .history_content_h1 p {
+    margin: 4rem 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .about_overlay img {
+    width: 80%;
+  }
+}

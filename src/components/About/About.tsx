@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import "./About.css";
 
 import g from "../../assets/images/G.png";
@@ -6,6 +6,12 @@ import spoon from "../../assets/images/spoon.png";
 import knife from "../../assets/images/knife.png";
 
 function About() {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (event.currentTarget.id === "history") {
+      console.log("history");
+    }
+  };
+
   return (
     <div className="about app_bg flex_center section_padding" id="#about">
       <div className="about_overlay flex_center">
@@ -39,7 +45,12 @@ function About() {
             Delectus vitae, laborum deleniti corporis ea architecto. Nulla error
             quisquam porro?
           </p>
-          <button type="button" className="about_button">
+          <button
+            type="button"
+            className="about_button"
+            id="history"
+            onClick={handleClick}
+          >
             Know more
           </button>
         </div>

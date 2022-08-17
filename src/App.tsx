@@ -3,6 +3,7 @@ import About from "./components/About/About";
 import Info from "./components/Info/Info";
 
 import Navbar from "./components/Navbar/Navbar";
+import SpecialMenu from "./components/SpecialMenu/SpecialMenu";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Navbar />
       <Info />
       <About />
+      <SpecialMenu />
     </div>
   );
 }

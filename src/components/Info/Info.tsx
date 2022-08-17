@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Subhead from "../Subhead/Subhead";
 
 import "./Info.css";
 
 import food from "../../assets/images/food.png";
+import Menu from "./Menu";
 
 function Info() {
+  const [showMenu, setShowMenu] = useState(false);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (event.currentTarget.id === "info") {
+      setShowMenu(true);
+    }
+  };
   return (
     <div className="app_info app_wrapper section_padding" id="home">
       <div className="app_wrapper_info">
@@ -17,9 +24,15 @@ function Info() {
           doloremque id possimus nisi delectus cumque nemo omnis quas ab.
           Corrupti, delectus quos?
         </p>
-        <button type="button" className="info_button">
+        <button
+          type="button"
+          className="info_button"
+          id="info"
+          onClick={(event) => handleClick(event)}
+        >
           Explore Menu
         </button>
+        {showMenu && <Menu open={true} setShowMenu={setShowMenu} />}
       </div>
       <div className="app_wrapper_image">
         <img src={food} alt="Header img" />

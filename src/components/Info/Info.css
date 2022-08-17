@@ -61,3 +61,10 @@
   outline: none;
   cursor: pointer;
 }
+@media screen and (max-width: 900px) {
+}
+@media screen and (max-width: 650px) {
+  .section_padding {
+    padding: 4rem 2rem;
+  }
+}
