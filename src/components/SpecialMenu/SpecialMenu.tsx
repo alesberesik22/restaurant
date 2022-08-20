@@ -33,7 +33,7 @@ function SpecialMenu() {
           <img src={menu} alt={"menu_img"} />
         </div>
         <div className="special_menu_cocktail flex_center">
-          <p className="special_menu_cocktail_heading">Wine and Beer</p>
+          <p className="special_menu_cocktail_heading">Cocktail</p>
           <div className="special_menu_cocktail_itmes">
             {MenuData.cocktails.map((item, key) => (
               <MenuItem
