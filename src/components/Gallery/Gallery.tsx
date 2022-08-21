@@ -15,15 +15,15 @@ import Subhead from "../Subhead/Subhead";
 
 function Gallery() {
   const images = [gallery01, gallery02, gallery03, gallery04];
-  const scrollRef = useRef(null);
+  const scrollRef = useRef<HTMLInputElement>(null);
 
-  const scroll = (direction: string) => {
+  const scroll = (direction: any) => {
     const { current } = scrollRef;
-    // if (direction === "left") {
-    //   current?.scrollLeft -= 300;
-    // } else {
-    //   current.scrollRight += 300;
-    // }
+    if (direction === "left") {
+      current!.scrollLeft -= 300;
+    } else {
+      current!.scrollLeft += 300;
+    }
   };
   return (
     <div className="gallery">
