@@ -2,6 +2,7 @@ import React from "react";
 import About from "./components/About/About";
 import Awards from "./components/Awards/Awards";
 import Findus from "./components/Findus/Findus";
+import Footer from "./components/Footer/Footer";
 import Gallery from "./components/Gallery/Gallery";
 import Info from "./components/Info/Info";
 import Intro from "./components/Intro/Intro";
@@ -20,6 +21,7 @@ function App() {
       <Awards />
       <Gallery />
       <Findus />
+      <Footer />
     </div>
   );
 }
