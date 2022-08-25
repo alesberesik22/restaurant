@@ -1,0 +1,45 @@
+.twotable {
+  position: absolute;
+  cursor: pointer;
+  margin: 4rem 6rem;
+}
+.table_number {
+  position: absolute;
+  top: 25px;
+  z-index: 2;
+  right: -40px;
+  color: white;
+}
+.table_four {
+  position: absolute;
+  top: 20px;
+  left: -10px;
+  width: 200px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.17);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.4px);
+  -webkit-backdrop-filter: blur(3.4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 1;
+}
+.places_four {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 35px;
+  grid-row-gap: 50px;
+  z-index: 0;
+}
+.sit_one,
+.sit_two,
+.sit_three,
+.sit_four {
+  width: 50px;
+  height: 50px;
+  background: rgba(233, 232, 231, 0.17);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}

@@ -7,9 +7,15 @@ import logo from "../../assets/images/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import Navbarlinks from "./Navbarlinks";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const navigate = useNavigate();
+
+  const redirect = () => {
+    navigate("/reservation", { replace: true });
+  };
   return (
     <nav className="app_navbar">
       <div className="app_navbar_logo">
@@ -23,7 +29,7 @@ function Navbar() {
           Log In / Register
         </a>
         <div />
-        <a href="/" className="app_navbar_text">
+        <a href="/reservation" className="app_navbar_text" onClick={redirect}>
           Book a table
         </a>
       </div>
