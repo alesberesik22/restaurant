@@ -1,41 +1,15 @@
-.fourtable {
+.eighttable {
   position: absolute;
   cursor: pointer;
-  width: 200px;
+  width: 400px;
   height: 150px;
   z-index: 3;
 }
-.table_number_four {
+.table_eight {
   position: absolute;
-  top: 35px;
-  z-index: 2;
-  right: 30px;
-  color: white;
-  font: var(--font-base);
-}
-.fourtable_time {
-  position: absolute;
-  z-index: 2;
-  bottom: 60px;
-  color: white;
-  font-weight: 200;
-  font-size: 14px;
-  font: var(--font-base);
-}
-.fourtable_time_name {
-  position: absolute;
-  z-index: 2;
-  bottom: 40px;
-  color: white;
-  font-weight: 150;
-  font-size: 13px;
-  font: var(--font-alt);
-}
-.table_four {
-  position: absolute;
-  top: 20px;
+  top: 25px;
   left: -10px;
-  width: 200px;
+  width: 450px;
   height: 100px;
   background-color: rgba(255, 255, 255, 0.17);
   border-radius: 5px;
@@ -45,9 +19,9 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   z-index: 1;
 }
-.places_four {
+.places_eight {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-column-gap: 35px;
   grid-row-gap: 50px;
   z-index: 0;
@@ -55,7 +29,11 @@
 .sit_one,
 .sit_two,
 .sit_three,
-.sit_four {
+.sit_four,
+.sit_five,
+.sit_six,
+.sit_seven,
+.sit_eight {
   width: 50px;
   height: 50px;
   background: rgba(233, 232, 231, 0.17);
@@ -63,4 +41,26 @@
   -moz-border-radius: 50px;
   -webkit-border-radius: 50px;
   border-radius: 50px;
+}
+.table_number_eight {
+  position: absolute;
+  top: 40px;
+  z-index: 2;
+  right: -20px;
+  color: white;
+  font: var(--font-base);
+}
+.eighttable_time_name {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  font: var(--font-base);
+  bottom: 35px;
+}
+.eighttable_time {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  bottom: 55px;
+  font: var(--font-base);
 }
