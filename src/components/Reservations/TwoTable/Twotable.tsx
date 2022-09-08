@@ -1,6 +1,7 @@
 import React from "react";
 import "./Twotable.css";
 import { takenStyle, freeStyle } from "../Style";
+import useState from "react";
 
 function Twotable(props: any) {
   return (

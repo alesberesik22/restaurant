@@ -1,0 +1,94 @@
+.reservation_modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 90%;
+  background-color: var(--color-black);
+  border: 2px solid var(--color-golden);
+  border-radius: 2rem;
+  box-shadow: 24px;
+  padding: 4px;
+}
+.reservation_title {
+  display: flex;
+  align-items: center;
+  transform: translate(50%, 50%);
+  font-family: var(--font-alt);
+  color: var(--color-golden);
+}
+.calendar_modal {
+  margin-top: 4rem;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.calendar {
+  width: 20rem;
+}
+.time {
+  display: flex;
+  width: 20rem;
+  color: white;
+  flex-direction: column;
+}
+.button_time {
+  width: 9rem;
+  height: 3rem;
+  background-color: var(--color-crimson);
+  color: var(--color-black);
+  font-family: var(--font-base);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 28px;
+  font-size: 17.5px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.button_time:active {
+  background-color: blue;
+}
+.react-calendar {
+  background-color: var(--color-golden);
+  border-radius: 2rem;
+  font-family: var(--font-alt);
+}
+.react-calendar__navigation button {
+  color: var(--color-black);
+}
+.react-calendar__navigation button,
+.react-calendar__navigation button {
+  border-radius: 2rem;
+}
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: black;
+  border-radius: 2rem;
+}
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  border-radius: 2rem;
+  background: #a9d4ff;
+}
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  border-radius: 2rem;
+  background: #ffffa9;
+}
+.react-calendar__tile--now {
+  border-radius: 2rem;
+}
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  border-radius: 2rem;
+  background-color: var(--color-black);
+}
+.react-calendar__tile--active {
+  background: var(--color-black);
+  border-radius: 2rem;
+}

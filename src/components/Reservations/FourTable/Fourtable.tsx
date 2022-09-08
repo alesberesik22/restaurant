@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Fourtable.css";
 import { takenStyle, freeStyle } from "../Style";
+import ReservationModal from "../ReservationModal/ReservationModal";
 
 function Fourtable(props: any) {
+  const [showReservation, setShowReservation] = useState(false);
   const reservateTable = (event: any) => {
     if (event.target.id === "01") {
       console.log("01");
+      setShowReservation(true);
     }
   };
   return (
@@ -26,6 +29,9 @@ function Fourtable(props: any) {
         <div className="sit_three" />
         <div className="sit_four" />
       </div>
+      {showReservation && (
+        <ReservationModal open={true} setShowReservation={setShowReservation} />
+      )}
     </div>
   );
 }
