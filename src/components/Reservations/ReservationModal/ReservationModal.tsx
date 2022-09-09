@@ -10,9 +10,10 @@ function ReservationModal(props: any) {
   const [dateSelected, setDateSelected] = React.useState(false);
   const [timeSelected, setTimeSelected] = React.useState("");
   const [date, setDate] = React.useState("");
+  const [tableID, setTableID] = React.useState([]);
   const [calendarValue, setCalendarValue] = React.useState(new Date());
 
-  const times = [
+  const times01 = [
     "08:00 - 10:00",
     "10:00 - 12:00",
     "12:00 - 14:00",
@@ -20,19 +21,38 @@ function ReservationModal(props: any) {
     "16:00 - 18:00",
     "18:00 - 20:00",
   ];
+  const times02 = [
+    "08:00 - 10:00",
+    "10:00 - 12:00",
+    "12:00 - 14:00",
+    "14:00 - 16:00",
+    "16:00 - 18:00",
+    "18:00 - 20:00",
+  ];
+  const times03 = [
+    "08:00 - 9:00",
+    "10:00 - 11:00",
+    "12:00 - 13:00",
+    "14:00 - 15:00",
+    "16:00 - 17:00",
+    "18:00 - 29:00",
+  ];
+  const times04 = ["08:00 - 9:00", "18:00 - 29:00"];
 
   const handleClose = () => {
-    setOpen(false);
     props.setShowReservation(false);
+    setOpen(false);
     setDateSelected(false);
   };
 
   useEffect(() => {
     setOpen(props.open);
+    setTableID(eval("times" + props.id));
   }, []);
 
   const calendarChange = (event) => {
     let date = String(event).split(" ");
+    console.log("times" + props.id);
     console.log(date[1] + date[2]);
     setCalendarValue(event);
     setDateSelected(true);
@@ -61,23 +81,46 @@ function ReservationModal(props: any) {
               <Calendar onChange={calendarChange} value={calendarValue} />
             </div>
             <div className="time">
-              {dateSelected &&
-                times.map((time) => {
-                  return (
-                    <button
-                      key={time}
-                      className="button_time"
-                      onClick={() => setTimeSelected(time)}
-                    >
-                      {time}
-                    </button>
-                  );
-                })}
+              {dateSelected && tableID
+                ? tableID.map((time) => {
+                    return (
+                      <button
+                        key={time}
+                        className="button_time"
+                        onClick={() => setTimeSelected(time)}
+                      >
+                        {time}
+                      </button>
+                    );
+                  })
+                : null}
             </div>
           </div>
           {timeSelected && date ? (
-            <div>
-              {date} at {timeSelected}
+            <div className="reservation_form">
+              <form>
+                <input
+                  type={"text"}
+                  name="name"
+                  placeholder="Enter your name"
+                  required
+                />
+                <input
+                  type={"text"}
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                />
+                <input
+                  type={"text"}
+                  name="number"
+                  placeholder="Enter your number"
+                  required
+                />
+                <button typeof="submit" className="send_button">
+                  Send reservation
+                </button>
+              </form>
             </div>
           ) : null}
         </Box>
