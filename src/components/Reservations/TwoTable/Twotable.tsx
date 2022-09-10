@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Twotable.css";
 import { takenStyle, freeStyle } from "../Style";
-import useState from "react";
+import ReservationModal from "../ReservationModal/ReservationModal";
 
 function Twotable(props: any) {
+  const [showReservation, setShowReservation] = useState(false);
+  const reservation = (event: any) => {
+    if (event.target.id === props.id) {
+      setShowReservation(true);
+    }
+  };
   return (
-    <div className="twotable" id={props.id}>
+    <div className="twotable" id={props.id} onClick={reservation}>
       <h3 className="table_number" id={props.id}>
         {props.id}
       </h3>
@@ -20,6 +26,13 @@ function Twotable(props: any) {
         <div className="sit_one" />
         <div className="sit_two" />
       </div>
+      {showReservation && (
+        <ReservationModal
+          open={true}
+          setShowReservation={setShowReservation}
+          id={props.id}
+        />
+      )}
     </div>
   );
 }

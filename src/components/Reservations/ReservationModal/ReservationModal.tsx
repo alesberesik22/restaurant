@@ -11,6 +11,12 @@ function ReservationModal(props: any) {
   const [timeSelected, setTimeSelected] = React.useState("");
   const [date, setDate] = React.useState("");
   const [tableID, setTableID] = React.useState([]);
+  const [userInfo, setUserInfo] = React.useState({});
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [number, setNumber] = React.useState("");
+  const [buttonColor, setButtonColor] = React.useState(false);
+  const [activeButton, setActiveButton] = React.useState<any | null>(null);
   const [calendarValue, setCalendarValue] = React.useState(new Date());
 
   const times01 = [
@@ -50,6 +56,48 @@ function ReservationModal(props: any) {
     setTableID(eval("times" + props.id));
   }, []);
 
+  const getReservationData = (event: any) => {
+    if (event.target.name === "name") {
+      setName(event.target.value);
+      setUserInfo({
+        name: event.target.value,
+        email: email,
+        number: number,
+      });
+    }
+    if (event.target.name === "email") {
+      setEmail(event.target.value);
+      setUserInfo({
+        name: name,
+        email: event.target.value,
+        number: number,
+      });
+    }
+    if (event.target.name === "number") {
+      setNumber(event.target.value);
+      setUserInfo({
+        name: name,
+        email: email,
+        number: event.target.value,
+      });
+    }
+  };
+  const changeColor = () => {
+    setButtonColor((current) => !current);
+  };
+
+  const submit = () => {
+    console.log(userInfo);
+    setUserInfo({});
+    setName("");
+    setEmail("");
+    setNumber("");
+    setTimeSelected("");
+    setDate("");
+    setDateSelected(false);
+    setActiveButton(null);
+  };
+
   const calendarChange = (event) => {
     let date = String(event).split(" ");
     console.log("times" + props.id);
@@ -78,16 +126,28 @@ function ReservationModal(props: any) {
           </Typography>
           <div className="calendar_modal">
             <div className="calendar">
-              <Calendar onChange={calendarChange} value={calendarValue} />
+              <Calendar
+                onChange={calendarChange}
+                value={calendarValue}
+                minDate={new Date()}
+              />
             </div>
             <div className="time">
               {dateSelected && tableID
-                ? tableID.map((time) => {
+                ? tableID.map((time, i) => {
                     return (
                       <button
                         key={time}
                         className="button_time"
-                        onClick={() => setTimeSelected(time)}
+                        style={{
+                          backgroundColor:
+                            i === activeButton ? "#DCCA87" : "#F5EFDB",
+                        }}
+                        onClick={() => {
+                          setTimeSelected(time);
+                          changeColor();
+                          setActiveButton(i);
+                        }}
                       >
                         {time}
                       </button>
@@ -104,20 +164,30 @@ function ReservationModal(props: any) {
                   name="name"
                   placeholder="Enter your name"
                   required
+                  onChange={getReservationData}
+                  value={name}
                 />
                 <input
                   type={"text"}
                   name="email"
                   placeholder="Enter your email"
+                  onChange={getReservationData}
+                  value={email}
                   required
                 />
                 <input
                   type={"text"}
                   name="number"
                   placeholder="Enter your number"
+                  onChange={getReservationData}
+                  value={number}
                   required
                 />
-                <button typeof="submit" className="send_button">
+                <button
+                  typeof="button"
+                  className="send_button"
+                  onClick={submit}
+                >
                   Send reservation
                 </button>
               </form>

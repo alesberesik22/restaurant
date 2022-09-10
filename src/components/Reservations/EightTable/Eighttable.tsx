@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Eighttable.css";
 import { freeStyle, takenStyle } from "../Style";
+import ReservationModal from "../ReservationModal/ReservationModal";
 
 function Eighttable(props: any) {
+  const [showReservation, setShowReservation] = useState(false);
+
+  const showReservateion = (event: any) => {
+    if (event.target.id === props.id) {
+      setShowReservation(true);
+    }
+  };
   return (
-    <div className="eighttable" id={props.id}>
+    <div className="eighttable" id={props.id} onClick={showReservateion}>
       <h2 className="table_number_eight" id={props.id}>
         {props.id}
       </h2>
@@ -25,6 +33,13 @@ function Eighttable(props: any) {
         <div className="sit_seven" />
         <div className="sit_eight" />
       </div>
+      {showReservation && (
+        <ReservationModal
+          open={true}
+          setShowReservation={setShowReservation}
+          id={props.id}
+        />
+      )}
     </div>
   );
 }

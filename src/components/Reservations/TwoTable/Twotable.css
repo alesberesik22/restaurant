@@ -1,5 +1,6 @@
 .twotable {
   position: absolute;
+  cursor: pointer;
 }
 .places {
   display: grid;

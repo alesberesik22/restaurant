@@ -6,8 +6,11 @@ import ReservationModal from "../ReservationModal/ReservationModal";
 function Fourtable(props: any) {
   const [showReservation, setShowReservation] = useState(false);
   const reservateTable = (event: any) => {
-    setShowReservation(true);
-    console.log("true");
+    console.log(event.target.id);
+    if (event.target.id === props.id) {
+      setShowReservation(true);
+      console.log("true");
+    }
   };
   return (
     <div className="fourtable" id={props.id} onClick={reservateTable}>

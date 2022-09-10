@@ -51,15 +51,16 @@
   cursor: pointer;
 }
 .button_time:active {
-  background-color: blue;
+  background-color: var(--color-golden);
 }
 .react-calendar {
-  background-color: var(--color-golden);
+  background-color: transparent;
   border-radius: 2rem;
   font-family: var(--font-alt);
+  border-color: var(--color-golden);
 }
 .react-calendar__navigation button {
-  color: var(--color-black);
+  color: var(--color-golden);
 }
 .react-calendar__navigation button,
 .react-calendar__navigation button {
@@ -67,7 +68,7 @@
 }
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
-  background: black;
+  background: var(--color-golden);
   border-radius: 2rem;
 }
 .react-calendar__tile--hasActive:enabled:hover,
@@ -86,10 +87,10 @@
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
   border-radius: 2rem;
-  background-color: var(--color-black);
+  background-color: var(--color-golden);
 }
 .react-calendar__tile--active {
-  background: var(--color-black);
+  background: var(--color-golden);
   border-radius: 2rem;
 }
 .reservation_form {
@@ -132,4 +133,20 @@ input {
   cursor: pointer;
   width: 20rem;
   height: 5rem;
+}
+.react-calendar__navigation button[disabled] {
+  background: transparent;
+}
+.react-calendar__tile:disabled {
+  color: grey;
+  background-color: transparent;
+}
+.react-calendar__tile {
+  color: white;
+}
+.react-calendar__tile--now {
+  background-color: #6f48eb;
+}
+.react-calendar__month-view__weekdays {
+  color: var(--color-golden);
 }
