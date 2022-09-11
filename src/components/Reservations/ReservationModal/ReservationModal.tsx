@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import React, { useEffect } from "react";
 import { Calendar } from "react-calendar";
+import { motion } from "framer-motion";
 import "react-calendar/dist/Calendar.css";
 import "./ReservationModal.css";
 
@@ -132,7 +133,16 @@ function ReservationModal(props: any) {
                 minDate={new Date()}
               />
             </div>
-            <div className="time">
+            <motion.div
+              className="time"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 1,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+            >
               {dateSelected && tableID
                 ? tableID.map((time, i) => {
                     return (
@@ -154,10 +164,19 @@ function ReservationModal(props: any) {
                     );
                   })
                 : null}
-            </div>
+            </motion.div>
           </div>
           {timeSelected && date ? (
-            <div className="reservation_form">
+            <motion.div
+              className="reservation_form"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.1,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+            >
               <form>
                 <input
                   type={"text"}
@@ -191,7 +210,7 @@ function ReservationModal(props: any) {
                   Send reservation
                 </button>
               </form>
-            </div>
+            </motion.div>
           ) : null}
         </Box>
       </Modal>

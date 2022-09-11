@@ -6,7 +6,7 @@ import findUsImage from "../../assets/images/findus.png";
 
 function Findus() {
   return (
-    <div className="findus" id="#contact">
+    <div className="findus" id="contact">
       <div className="findus_info">
         <Subhead title="Contact" />
         <h1 className="findus_text" style={{ marginBottom: "3rem" }}>

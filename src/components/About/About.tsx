@@ -13,7 +13,7 @@ function About() {
   };
 
   return (
-    <div className="about app_bg flex_center section_padding" id="#about">
+    <div className="about app_bg flex_center section_padding" id="about">
       <div className="about_overlay flex_center">
         <img src={g} alt="g" />
       </div>

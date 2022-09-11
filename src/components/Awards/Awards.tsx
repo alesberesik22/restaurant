@@ -21,7 +21,7 @@ const AwardCard = (props: any) => {
 
 function Awards() {
   return (
-    <div className="awards section_padding" id="#awards">
+    <div className="awards section_padding" id="awards">
       <div className="awards_info">
         <Subhead title={"Awards & Recognition"} />
         <h1 className="head_text">Our Awards</h1>
