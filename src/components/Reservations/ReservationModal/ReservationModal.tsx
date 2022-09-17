@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import React, { useEffect } from "react";
+import axios from "axios";
 import { Calendar } from "react-calendar";
 import { motion } from "framer-motion";
 import "react-calendar/dist/Calendar.css";
@@ -11,7 +12,7 @@ function ReservationModal(props: any) {
   const [dateSelected, setDateSelected] = React.useState(false);
   const [timeSelected, setTimeSelected] = React.useState("");
   const [date, setDate] = React.useState("");
-  const [tableID, setTableID] = React.useState([]);
+  const [tableID, setTableID] = React.useState<any>([]);
   const [userInfo, setUserInfo] = React.useState({});
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -19,32 +20,6 @@ function ReservationModal(props: any) {
   const [buttonColor, setButtonColor] = React.useState(false);
   const [activeButton, setActiveButton] = React.useState<any | null>(null);
   const [calendarValue, setCalendarValue] = React.useState(new Date());
-
-  const times01 = [
-    "08:00 - 10:00",
-    "10:00 - 12:00",
-    "12:00 - 14:00",
-    "14:00 - 16:00",
-    "16:00 - 18:00",
-    "18:00 - 20:00",
-  ];
-  const times02 = [
-    "08:00 - 10:00",
-    "10:00 - 12:00",
-    "12:00 - 14:00",
-    "14:00 - 16:00",
-    "16:00 - 18:00",
-    "18:00 - 20:00",
-  ];
-  const times03 = [
-    "08:00 - 9:00",
-    "10:00 - 11:00",
-    "12:00 - 13:00",
-    "14:00 - 15:00",
-    "16:00 - 17:00",
-    "18:00 - 29:00",
-  ];
-  const times04 = ["08:00 - 9:00", "18:00 - 29:00"];
 
   const handleClose = () => {
     props.setShowReservation(false);
@@ -54,7 +29,6 @@ function ReservationModal(props: any) {
 
   useEffect(() => {
     setOpen(props.open);
-    setTableID(eval("times" + props.id));
   }, []);
 
   const getReservationData = (event: any) => {
@@ -87,8 +61,7 @@ function ReservationModal(props: any) {
     setButtonColor((current) => !current);
   };
 
-  const submit = () => {
-    console.log(userInfo);
+  const submitClear = () => {
     setUserInfo({});
     setName("");
     setEmail("");
@@ -97,15 +70,37 @@ function ReservationModal(props: any) {
     setDate("");
     setDateSelected(false);
     setActiveButton(null);
+    props.setShowReservation(false);
+    setOpen(false);
+  };
+
+  const submit = async () => {
+    let dateParse = date.split(" ");
+    axios.post(
+      `http://localhost:5000/${props.id}/${dateParse[0]}/${dateParse[1]}/${timeSelected}`,
+      userInfo
+    );
+    submitClear();
   };
 
   const calendarChange = (event) => {
     let date = String(event).split(" ");
-    console.log("times" + props.id);
-    console.log(date[1] + date[2]);
     setCalendarValue(event);
     setDateSelected(true);
     setDate(date[1] + " " + date[2]);
+    setTableID([]);
+    axios
+      .get(`http://localhost:5000/${props.id}/${date[1]}/${date[2]}`)
+      .then((response) => {
+        for (let key in response.data[0]) {
+          if (
+            key !== "id" &&
+            Object.keys(response.data[0][String(key)]).length === 0
+          ) {
+            setTableID((old) => [...old, key]);
+          }
+        }
+      });
   };
 
   return (

@@ -29,10 +29,11 @@
   width: 20rem;
 }
 .time {
-  display: flex;
+  display: grid;
   width: 20rem;
   color: white;
-  flex-direction: column;
+  grid-template-columns: 10rem 10rem;
+  height: 20rem;
 }
 .button_time {
   width: 9rem;
